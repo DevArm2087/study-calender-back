@@ -93,8 +93,16 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # کلید پیش‌فرض برای مدل‌ها
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+ALLOWED_HOSTS = ["study-calender-back.onrender.com", "localhost"]
+
+
 # تنظیمات CORS
-CORS_ALLOWED_ORIGINS = os.environ.get("CORS_ALLOWED_ORIGINS", "http://localhost:5173").split(",")
+CORS_ALLOWED_ORIGINS = os.environ.get(
+    "CORS_ALLOWED_ORIGINS",
+    "http://localhost:5173, " \
+    "https://study-calender-front.onrender.com"
+).split(",")
+
 
 # تنظیمات DRF و JWT
 REST_FRAMEWORK = {
